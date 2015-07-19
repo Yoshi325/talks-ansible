@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="generator" content="HTML Tidy for HTML5 for Mac OS X version 5.1.2">
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title></title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <style type="text/css">
+.reveal .slides section .fragment.current-visible.current-fragment.collapsable-fragment { display: initial; } 
+.reveal .slides section .fragment.current-visible.collapsable-fragment { display: none; } 
+    code{white-space: pre;}
+    </style>
+    <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme"><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+
+    <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'reveal.js/css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+    </script><!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section id="ansible" class="slide level1">
+                <h1>Ansible</h1>
+                <h2 id="and-why-it-works-for-me.">And why it works for me.</h2>
+                <dl>
+                    <dt>Author</dt>
+                    <dd>
+                        <p>Charles Yost &lt;
+                        <script type="text/javascript">
+                        <!--
+                        h='&#98;&#x69;&#110;&#x61;&#114;&#x79;&#100;&#x65;&#102;&#x65;&#110;&#x73;&#x65;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x63;&#104;&#x61;&#114;&#108;&#x65;&#x73;&#46;&#x79;&#x6f;&#x73;&#116;';e=n+a+h;
+                        document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+                        // -->
+                        </script><noscript>charles.yost at binarydefense dot com</noscript>&gt;</p>
+                    </dd>
+                    <dt>Date</dt>
+                    <dd>
+                        <p>2015-07</p>
+                    </dd>
+                    <dt>Twitter</dt>
+                    <dd>
+                        <p>@charleslyost</p>
+                    </dd>
+                </dl>
+            </section>
+            <section class="slide level1">
+                <p><img src="ANSI_logotype_web_white.png" alt="image"></p>
+                <div class="fragment">
+                    <p>And why it works for me.</p>
+                </div>
+            </section>
+            <section id="alternatives" class="slide level1">
+                <h1>Alternatives</h1>
+                <p>Here are some alternatives:</p>
+                <ul>
+                    <li>Chef</li>
+                    <li>Puppet</li>
+                    <li>Salt (a.k.a. SaltStack)</li>
+                </ul>
+                <div class="fragment">
+                    <p>(somewhat ...)</p>
+                </div>
+                <div class="fragment">
+                    <p>Many differences exist between<br>
+                    these alternatives and Ansible.</p>
+                </div>
+                <aside class="notes">
+                    <p>We will talk about those later.</p>
+                </aside>
+            </section>
+            <section id="what-is-ansible" class="slide level1">
+                <h1>What is Ansible?</h1>
+                <div class="current-visible fragment collapsable-fragment">
+                    <blockquote>
+                        <p>DevOps made simple.<br>
+                        Deploy apps. Manage systems. Crush complexity.<br>
+                        Ansible is a powerful automation tool that you can learn quickly.</p>
+                        <p><a href="http://www.ansible.com/">www.ansible.com</a></p>
+                    </blockquote>
+                </div>
+                <div class="current-visible fragment collapsable-fragment">
+                    <blockquote>
+                        <p>Ansible is a free software platform for configuring and managing computers. It combines multi-node software deployment, ad hoc task execution, and configuration management.</p>
+                        <p><a href="https://en.wikipedia.org/wiki/Ansible_(software)">Ansible (software) | Wikipedia</a></p>
+                    </blockquote>
+                </div>
+                <div class="fragment">
+                    <blockquote>
+                        <p>A way to maintain sanity in a complex and ever-changing world involving system configuration.</p>
+                        <div class="fragment">
+                            <p><a href="http://chaosrestrained.com/">Me</a></p>
+                        </div>
+                    </blockquote>
+                </div>
+            </section>
+            <section id="whats-in-a-name" class="slide level1">
+                <h1>What's In A Name</h1>
+                <blockquote>
+                    <p>It was named "Ansible" after the fictional instantaneous hyperspace communication system featured in Orson Scott Card's Ender's Game, and originally invented by Ursula K. Le Guin for her 1966 novel Rocannon's World."</p>
+                </blockquote>
+                <p><a href="https://en.wikipedia.org/wiki/Ansible_(software)">Ansible (software) | Wikipedia</a></p>
+                <aside class="notes">
+                    <p>And this will make some sense, later ...</p>
+                </aside>
+                <div class="fragment">
+                    <p>Also, Releases are named after Van Halen songs.</p>
+                </div>
+            </section>
+            <section id="server" class="slide level1">
+                <h1>Server</h1>
+                <div class="fragment">
+                    <p>Linux or Mac</p>
+                </div>
+                <div class="fragment">
+                    <p>SSH</p>
+                </div>
+                <div class="fragment">
+                    <p>Python (2.4 or later)</p>
+                </div>
+            </section>
+            <section id="client" class="slide level1">
+                <h1>Client</h1>
+                <div class="fragment">
+                    <p>Linux, Mac, or Windows</p>
+                </div>
+                <div class="fragment">
+                    <p>SSH or PowerShell</p>
+                </div>
+                <div class="fragment">
+                    <p>Python (2.4 or later)</p>
+                </div>
+                <div class="fragment">
+                    <p><strong>Thats it.</strong></p>
+                </div>
+                <aside class="notes">
+                    <p>And that really is it. Ansible is a very slim setup.</p>
+                </aside>
+            </section>
+            <section id="learn-the-lingo" class="slide level1">
+                <h1>Learn The Lingo</h1>
+                <div class="fragment">
+                    <p><strong>Inventory</strong></p>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>ini format</li>
+                        <li>list of hostnames or ips</li>
+                        <li>can also contain some variables</li>
+                        <li>can be grouped, and have grouped groups</li>
+                    </ul>
+                </aside>
+                <div class="fragment">
+                    <p><strong>Playbooks</strong></p>
+                </div>
+                <aside class="notes">
+                    <p>Ansible's documentation calls them it's orchestration language, and I feel it's pretty apt.</p>
+                </aside>
+                <div class="fragment">
+                    <p><strong>Roles</strong></p>
+                    <p><strong>Tasks</strong></p>
+                    <p><strong>Handlers</strong></p>
+                    <p><strong>Variables</strong></p>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>Roles allow a smaller, reusable orgizational unit for T, H, & V.</li>
+                        <li>Tasks are a combo of a thing to do, a name for it, if it should be done, and what should be done after it.</li>
+                        <li>Handlers are special post-playbook tasks, which are de-duped before they are ran.</li>
+                        <li>Variables provide flexibility for a role to be configured.</li>
+                        <li>These are the smallest pieces that make up playbooks.</li>
+                    </ul>
+                </aside>
+                <div class="fragment">
+                    <p><strong>Modules</strong></p>
+                </div>
+                <aside class="notes">
+                    <p>The tools you call on within a Task. Encapsulates an action, and the desired result.</p>
+                </aside>
+            </section>
+            <section id="bonus-lingo" class="slide level1">
+                <h1>Bonus Lingo</h1>
+                <div class="fragment">
+                    <p><strong>Galaxy</strong></p>
+                </div>
+                <div class="fragment">
+                    <p><strong>Tower</strong> (Optional!)</p>
+                </div>
+                <aside class="notes">
+                    <ol>
+                        <li>Where you can find many community created roles; which can be educating and useful in creating your own.</li>
+                        <li>Optional Commercial Product to Visualize and Manage via Ansible</li>
+                    </ol>
+                </aside>
+            </section>
+            <section id="other-details" class="slide level1">
+                <h1>Other Details</h1>
+                <div class="fragment current-visible collapsable-fragment">
+                    <p><strong>Ansible Is:</strong></p>
+                    <ul>
+                        <li>Agentless</li>
+                        <li>Primarilly Push Based (Option for Pull)</li>
+                        <li>Configuration is done in YAML (Mostly)</li>
+                        <li>Extendable (via Modules written in Python)</li>
+                    </ul>
+                </div>
+                <div class="fragment current-visible collapsable-fragment">
+                    <p><strong>And It:</strong></p>
+                    <ul>
+                        <li>Communicates via a JSON protocol</li>
+                        <li>Uses a idempotent resource model</li>
+                        <li>Supports Linux, Mac, & Windows Clients</li>
+                        <li>Has Cloud Integration</li>
+                    </ul>
+                    <p>VMware, OpenStack, AWS,<br>
+                    Rackspace Cloud Servers,<br>
+                    DigitalOcean Droplets,<br>
+                    Eucalyptus Cloud, KVM,<br>
+                    and CloudStack</p>
+                </div>
+            </section>
+            <section id="putting-it-all-together" class="slide level1">
+                <h1>Putting it all Together</h1>
+                <p><strong>DEMO</strong></p>
+            </section>
+            <section id="tips-tricks-pitfalls" class="slide level1">
+                <h1>Tips, Tricks, & Pitfalls</h1>
+                <div class="fragment">
+                    <blockquote>
+                        <p>How-To iterate over a list from a shell command: .stdout_lines</p>
+                    </blockquote>
+                </div>
+                <div class="fragment">
+                    <blockquote>
+                        <p>host_vars folder</p>
+                    </blockquote>
+                </div>
+            </section>
+            <section id="back-to-those-alternatives" class="slide level1">
+                <h1>Back to Those Alternatives</h1>
+                <ul>
+                    <li>Chef</li>
+                    <li>Puppet</li>
+                    <li>
+                        <strong>Salt/SaltStack</strong>
+                        <ul>
+                            <li>Difference: ZeroMQ (or RAET) instead of SSH</li>
+                            <li>Similarity: Python</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section id="the-end" class="slide level1">
+                <h1>The End</h1>
+            </section>
+        </div>
+    </div>
+    <script src="reveal.js/lib/js/head.min.js">
+    </script> 
+    <script src="reveal.js/js/reveal.js">
+    </script> 
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,         // Display controls in the bottom right corner
+        progress: true,         // Display a presentation progress bar
+        history: true,          // Push each slide change to the browser history
+        center: false,                       // Vertical centering of slides
+        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
+        slideNumber: false,                // Display the page number of the current slide
+        theme: 'black', // available themes are in /css/theme
+        transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+    //          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+    //          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]});
+    </script>
+</body>
+</html>
