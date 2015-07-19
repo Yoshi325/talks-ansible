@@ -1,28 +1,45 @@
-=========
- Ansible
-=========
+=======
+Ansible
+=======
 
---------------------------
- And why it works for me.
---------------------------
+------------------------
+And why it works for me.
+------------------------
 
-:Author: Charles Yost <charles.yost@binarydefense.com>
+:Author: Charles Yost
 :Date: 2015-07
-:Twitter: @charleslyost
 
 ----
 
-.. image:: ANSI_logotype_web_white.png
-  :height: 600px
+Description
+===========
 
-.. class:: fragment
-
-And why it works for me.
+A 45 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.
 
 
-============
+Speaker Bio
+===========
+
+Charles Yost is currently a Security Developer at Binary Defense Systems. He has worked in the IT industry for over 10 years in a wide variety of roles including: Printer Technician, VoIP  Systems Administrator, .Net Developer, and Web Developer. Throughout his life his number one passion is learning new skills. He can often be found researching and learning, attempting to keep up with the quickly evolving field of technology. Charles enjoys teaching and talking to others about technology and it's many uses. He is a member of NEOISF, and attends as many InfoSec conferences as he can justify with his wife.
+
+
+Contact
+=======
+
+Twitter: @charleslysot
+
+GitHub: Yoshi325
+
+This Talk: https://github.com/Yoshi325/talks-ansible
+
+
+Showtime
+========
+
+
 Alternatives
 ============
+
 Here are some alternatives:
 
 * Chef
@@ -43,7 +60,6 @@ Here are some alternatives:
 We will talk about those later.
 
 
-================
 What is Ansible?
 ================
 
@@ -66,7 +82,6 @@ What is Ansible?
   `Me <http://chaosrestrained.com/>`_
 
 
-================
 What's In A Name
 ================
 
@@ -83,7 +98,6 @@ And this will make some sense, later ...
 Also, Releases are named after Van Halen songs.
 
 
-======
 Server
 ======
 
@@ -97,7 +111,6 @@ SSH
 Python (2.4 or later)
 
 
-======
 Client
 ======
 
@@ -118,7 +131,6 @@ Python (2.4 or later)
   And that really is it. Ansible is a very slim setup.
 
 
-===============
 Learn The Lingo
 ===============
 
@@ -161,7 +173,6 @@ Ansible's documentation calls them it's orchestration language, and I feel it's 
 The tools you call on within a Task. Encapsulates an action, and the desired result.
 
 
-===========
 Bonus Lingo
 ===========
 
@@ -176,7 +187,6 @@ Bonus Lingo
 #. Optional Commercial Product to Visualize and Manage via Ansible
 
 
-=============
 Other Details
 =============
 
@@ -204,14 +214,12 @@ Other Details
   | and CloudStack
 
 
-=======================
 Putting it all Together
 =======================
 
 **DEMO**
 
 
-========================
 Tips, Tricks, & Pitfalls
 ========================
 
@@ -222,7 +230,6 @@ Tips, Tricks, & Pitfalls
   host_vars folder
 
 
-==========================
 Back to Those Alternatives
 ==========================
 
@@ -233,12 +240,17 @@ Back to Those Alternatives
   * Similarity: Python
 
 
-=======
 The End
 =======
 
-=====================
+
 Resources and Credits
 =====================
+
 `Insanely complete Ansible playbook, showing off all the options <https://gist.github.com/phred/2897937>`_
+
 `Insanely complete Ansible playbook, showing off all the options | marktheunissen's fork <https://gist.github.com/marktheunissen/2979474>`_
+
+https://wikpedia.org
+
+http://www.ansible.com/home
