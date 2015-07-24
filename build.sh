@@ -15,9 +15,12 @@ pandoc \
         -quiet \
         --doctype html5  \
         --indent-spaces 4 \
-  | sed '/<style /a \
-            .reveal .slides section .fragment.current-visible.current-fragment.collapsable-fragment { display: initial; } \
-            .reveal .slides section .fragment.current-visible.collapsable-fragment { display: none; } \
+  | sed '/<\/head>/i \
+            <style>   \
+                .reveal .slides section .fragment.current-visible.current-fragment.collapsable-fragment { display: initial; } \
+                .reveal .slides section .fragment.current-visible.collapsable-fragment { display: none; } \
+                h1.subtitle { font-size: 2em; } \
+            </style>  \
     ' \
   > index.html \
 ;
