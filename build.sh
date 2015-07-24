@@ -20,6 +20,8 @@ pandoc \
                 .reveal .slides section .fragment.current-visible.current-fragment.collapsable-fragment { display: initial; } \
                 .reveal .slides section .fragment.current-visible.collapsable-fragment { display: none; } \
                 h1.subtitle { font-size: 2em; } \
+                .code { text-align: left; } \
+                .reveal dd > p { margin: 0; } \
             </style>  \
     ' \
   > index.html \
