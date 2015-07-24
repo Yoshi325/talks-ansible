@@ -1,0 +1,39 @@
+---
+  - hosts: all
+    tasks:
+      - name: "Set the Hostname"
+        hostname: name={{ inventory_hostname_short }}
+        when: ansible_os_family == 'Debian'
+        tags: [configuration, hostname]
+        sudo: yes
+
+      - name: "Update the /etc/hostname file for Hostname"
+        template:
+            src: templates/hostname_{{ ansible_os_family | lower }}.j2
+            dest: /etc/hostname
+            owner: root
+            group: root
+            mode: 0644
+        when: ansible_os_family == 'Debian'
+        tags: [configuration, hostname]
+        sudo: yes
+
+      - name: "Update the /etc/hosts file for Hostname"
+        template:
+            src: templates/hosts_{{ ansible_os_family | lower }}.j2
+            dest: /etc/hosts
+            owner: root
+            group: root
+            mode: 0644
+        when: ansible_os_family == 'Debian'
+        tags: [configuration, hostname]
+        sudo: yes
+
+      - name: "Install My Tools"
+        apt: pkg={{ item }} state=present update_cache=yes
+        with_items:
+          - htop
+          - strace
+          - ltrace
+          - nload
+        sudo: yes
