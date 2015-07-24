@@ -1,6 +1,5 @@
 #!/bin/bash
-
-build.sh \
-  & node serve.js \
-      & open 'http://localhost:5000/' \
+./build.sh;
+{ sleep 2s; open 'http://localhost:5000/'; } & \
+    node serve.js \
 ;
