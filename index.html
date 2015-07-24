@@ -4,15 +4,13 @@
     <meta name="generator" content="HTML Tidy for HTML5 for Mac OS X version 5.1.2">
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <meta name="author" content="Charles Yost">
+    <meta name="author" content="Charles L. Yost">
     <title>Ansible</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="reveal.js/css/reveal.css">
     <style type="text/css">
-.reveal .slides section .fragment.current-visible.current-fragment.collapsable-fragment { display: initial; } 
-.reveal .slides section .fragment.current-visible.collapsable-fragment { display: none; } 
     code{white-space: pre;}
     </style>
     <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme"><!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -28,14 +26,21 @@
     </script><!--[if lt IE 9]>
   <script src="reveal.js/lib/js/html5shiv.js"></script>
   <![endif]-->
+<style>   
+.reveal .slides section .fragment.current-visible.current-fragment.collapsable-fragment { display: initial; } 
+.reveal .slides section .fragment.current-visible.collapsable-fragment { display: none; } 
+h1.subtitle { font-size: 2em; } 
+.code { text-align: left; } 
+.reveal dd > p { margin: 0; } 
+</style>  
 </head>
 <body>
     <div class="reveal">
         <div class="slides">
             <section>
                 <h1 class="title">Ansible</h1>
-                <h1 class="subtitle">And why it works for me.</h1>
-                <h2 class="author">Charles Yost</h2>
+                <h1 class="subtitle">And why it works for me</h1>
+                <h2 class="author">Charles L. Yost</h2>
                 <h3 class="date">2015-07</h3>
             </section>
             <section id="description" class="slide level1">
@@ -44,35 +49,30 @@
             </section>
             <section id="speaker-bio" class="slide level1">
                 <h1>Speaker Bio</h1>
-                <p>Charles Yost is currently a Security Developer at Binary Defense Systems. He has worked in the IT industry for over 10 years in a wide variety of roles including: Printer Technician, VoIP Systems Administrator, .Net Developer, and Web Developer. Throughout his life his number one passion is learning new skills. He can often be found researching and learning, attempting to keep up with the quickly evolving field of technology. Charles enjoys teaching and talking to others about technology and it's many uses. He is a member of NEOISF, and attends as many InfoSec conferences as he can justify with his wife.</p>
+                <p>Charles Yost is currently a Security Developer at Binary Defense Systems. He has worked in the IT industry for over 10 years in a wide variety of roles including: Printer Technician, VoIP Systems Administrator, .Net Developer, and Web Developer. Throughout life his number one passion has been learning new skills. He can often be found researching a topic, attempting to keep up with the quickly evolving field of technology. Charles enjoys teaching and talking to others about technology. He is a member of NEOISF, and attends as many InfoSec conferences as he can justify with his wife.</p>
             </section>
             <section id="contact" class="slide level1">
                 <h1>Contact</h1>
-                <p>Twitter: @charleslysot</p>
+                <p>Twitter: @CHARLESLYOST</p>
                 <p>GitHub: Yoshi325</p>
-                <p>This Talk: <a href="https://github.com/Yoshi325/talks-ansible" class="uri">https://github.com/Yoshi325/talks-ansible</a></p>
+                <p>This Talk:<br>
+                <a href="https://github.com/Yoshi325/talks-ansible" class="uri">https://github.com/Yoshi325/talks-ansible</a></p>
             </section>
             <section id="showtime" class="slide level1">
                 <h1>Showtime</h1>
             </section>
-            <section id="alternatives" class="slide level1">
-                <h1>Alternatives</h1>
+            <section id="some-alternatives" class="slide level1">
+                <h1>Some Alternatives</h1>
                 <p>Here are some alternatives:</p>
                 <ul>
                     <li>Chef</li>
                     <li>Puppet</li>
                     <li>Salt (a.k.a. SaltStack)</li>
+                    <li>and <strong>Many Others</strong></li>
                 </ul>
-                <div class="fragment">
-                    <p>(somewhat ...)</p>
-                </div>
-                <div class="fragment">
-                    <p>Many differences exist between<br>
-                    these alternatives and Ansible.</p>
-                </div>
-                <aside class="notes">
-                    <p>We will talk about those later.</p>
-                </aside>
+                <p>Many differences exist between<br>
+                these alternatives and Ansible.<br>
+                We will review those differences later.</p>
             </section>
             <section id="what-is-ansible" class="slide level1">
                 <h1>What is Ansible?</h1>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="fragment">
                     <blockquote>
-                        <p>A way to maintain sanity in a complex and ever-changing world involving system configuration.</p>
+                        <p>A way to maintain sanity in the complex and ever-changing world of system configuration.</p>
                         <div class="fragment">
                             <p><a href="http://chaosrestrained.com/">Me</a></p>
                         </div>
@@ -103,8 +103,8 @@
                 <h1>What's In A Name</h1>
                 <blockquote>
                     <p>It was named "Ansible" after the fictional instantaneous hyperspace communication system featured in Orson Scott Card's Ender's Game, and originally invented by Ursula K. Le Guin for her 1966 novel Rocannon's World."</p>
+                    <p><a href="https://en.wikipedia.org/wiki/Ansible_(software)">Ansible (software) | Wikipedia</a></p>
                 </blockquote>
-                <p><a href="https://en.wikipedia.org/wiki/Ansible_(software)">Ansible (software) | Wikipedia</a></p>
                 <aside class="notes">
                     <p>And this will make some sense, later ...</p>
                 </aside>
@@ -114,6 +114,7 @@
             </section>
             <section id="server" class="slide level1">
                 <h1>Server</h1>
+                <h2 id="control-machine">(Control Machine)</h2>
                 <div class="fragment">
                     <p>Linux or Mac</p>
                 </div>
@@ -121,11 +122,12 @@
                     <p>SSH</p>
                 </div>
                 <div class="fragment">
-                    <p>Python (2.4 or later)</p>
+                    <p>Python (2.6 or later)</p>
                 </div>
             </section>
             <section id="client" class="slide level1">
                 <h1>Client</h1>
+                <h2 id="managed-node">(Managed Node)</h2>
                 <div class="fragment">
                     <p>Linux, Mac, or Windows</p>
                 </div>
@@ -135,6 +137,9 @@
                 <div class="fragment">
                     <p>Python (2.4 or later)</p>
                 </div>
+                <aside class="notes research">
+                    <p>Does Windows Require Python?</p>
+                </aside>
                 <div class="fragment">
                     <p><strong>Thats it.</strong></p>
                 </div>
@@ -180,7 +185,7 @@
                     <p><strong>Modules</strong></p>
                 </div>
                 <aside class="notes">
-                    <p>The tools you call on within a Task. Encapsulates an action, and the desired result.</p>
+                    <p>Modules (also referred to as “task plugins” or “library plugins”) The tools you call on within a Task. Encapsulates an action, and the desired result.</p>
                 </aside>
             </section>
             <section id="bonus-lingo" class="slide level1">
@@ -204,9 +209,9 @@
                     <p><strong>Ansible Is:</strong></p>
                     <ul>
                         <li>Agentless</li>
-                        <li>Primarilly Push Based (Option for Pull)</li>
-                        <li>Configuration is done in YAML (Mostly)</li>
+                        <li>Configuration is done in YAML</li>
                         <li>Extendable (via Modules written in Python)</li>
+                        <li>Primarilly Push Based (with an option for Pull)</li>
                     </ul>
                 </div>
                 <div class="fragment current-visible collapsable-fragment">
@@ -216,11 +221,9 @@
                         <li>Uses a idempotent resource model</li>
                         <li>Has Cloud Integration</li>
                     </ul>
-                    <p>VMware, OpenStack, AWS,<br>
-                    Rackspace Cloud Servers,<br>
-                    DigitalOcean Droplets,<br>
-                    Eucalyptus Cloud, KVM,<br>
-                    and CloudStack</p>
+                    <p>Rackspace Cloud Servers, OpenStack,<br>
+                    DigitalOcean Droplets, CloudStack,<br>
+                    Eucalyptus Cloud, AWS, VMware, and KVM</p>
                 </div>
             </section>
             <section id="putting-it-all-together" class="slide level1">
@@ -229,30 +232,107 @@
             </section>
             <section id="tips-tricks-pitfalls" class="slide level1">
                 <h1>Tips, Tricks, & Pitfalls</h1>
-                <div class="fragment">
+                <p>How-To iterate over a list from a shell command:</p>
+                <div class="code">
                     <blockquote>
-                        <p>How-To iterate over a list from a shell command: .stdout_lines</p>
-                    </blockquote>
-                </div>
-                <div class="fragment">
-                    <blockquote>
-                        <p>host_vars folder</p>
+                        <p>shell: /command/which/generates/lines<br>
+                        register: output<br>
+                        ...<br>
+                        when: item not in output.stdout_lines</p>
                     </blockquote>
                 </div>
             </section>
+            <section id="tips-tricks-pitfalls-1" class="slide level1">
+                <h1>Tips, Tricks, & Pitfalls</h1>
+                <p>Store host specific variables in a host_vars folder.</p>
+            </section>
+            <section id="tips-tricks-pitfalls-2" class="slide level1">
+                <h1>Tips, Tricks, & Pitfalls</h1>
+                <p>To only run a task when a list is <strong>NOT</strong> empty.</p>
+                <blockquote>
+                    <p>when: list|length &gt; 0</p>
+                </blockquote>
+            </section>
+            <section id="tips-tricks-pitfalls-3" class="slide level1">
+                <h1>Tips, Tricks, & Pitfalls</h1>
+                <p>If your task hangs forever and is using sudo, confirm that you passed the:</p>
+                <blockquote>
+                    <p>--ask-sudo-pass</p>
+                </blockquote>
+                <p>comand line option when you ran ansible.</p>
+            </section>
+            <section id="tips-tricks-pitfalls-4" class="slide level1">
+                <h1>Tips, Tricks, & Pitfalls</h1>
+                <p>There are two ways to structure variables:</p>
+                <dl>
+                    <dt>1. Dictionary:</dt>
+                    <dd>
+                        <p>networking.interface.ip</p>
+                    </dd>
+                    <dt>2. Scalar:</dt>
+                    <dd>
+                        <p>networking_interface_ip</p>
+                    </dd>
+                    <dt>The drawback to dictionaries is:</dt>
+                    <dd>
+                        <p>when you set a value somewhere else, it will replace the <strong>whole</strong> dictionary. It does not merge it.</p>
+                    </dd>
+                </dl>
+            </section>
             <section id="back-to-those-alternatives" class="slide level1">
                 <h1>Back to Those Alternatives</h1>
-                <ul>
-                    <li>Chef</li>
-                    <li>Puppet</li>
-                    <li>
-                        <strong>Salt/SaltStack</strong>
-                        <ul>
-                            <li>Difference: ZeroMQ (or RAET) instead of SSH</li>
-                            <li>Similarity: Python</li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="current-visible fragment collapsable-fragment">
+                    <p><strong>Chef</strong></p>
+                    <ul>
+                        <li>Differences
+                            <ul>
+                                <li>Ruby/Erlang</li>
+                                <li>Uses an agent by default</li>
+                                <li>Only free up to 25 nodes</li>
+                                <li>Split between Hosted and On Premise</li>
+                            </ul>
+                        </li>
+                        <li>Similarities
+                            <ul>
+                                <li>Cloud Support</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="current-visible fragment collapsable-fragment">
+                    <p><strong>Puppet</strong></p>
+                    <ul>
+                        <li>Differences
+                            <ul>
+                                <li>Ruby</li>
+                                <li>Requires an agent</li>
+                                <li>Split between Enterprise and Open Source</li>
+                                <li>Enterprise is the Paid Tier</li>
+                                <li>Largely GUI Driven</li>
+                            </ul>
+                        </li>
+                        <li>Similarities
+                            <ul>
+                                <li>Cloud Support</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="current-visible fragment collapsable-fragment">
+                    <p><strong>Salt/SaltStack</strong></p>
+                    <ul>
+                        <li>Differences
+                            <ul>
+                                <li>ZeroMQ (or RAET) instead of SSH</li>
+                            </ul>
+                        </li>
+                        <li>Similarities
+                            <ul>
+                                <li>Python</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </section>
             <section id="the-end" class="slide level1">
                 <h1>The End</h1>
@@ -261,6 +341,9 @@
                 <h1>Resources and Credits</h1>
                 <p><a href="https://gist.github.com/phred/2897937">Insanely complete Ansible playbook, showing off all the options</a></p>
                 <p><a href="https://gist.github.com/marktheunissen/2979474">Insanely complete Ansible playbook, showing off all the options | marktheunissen's fork</a></p>
+                <p><a href="http://thornelabs.net/2014/03/08/install-ansible-create-your-inventory-file-and-run-an-ansible-playbook-and-some-ansible-commands.html">Install Ansible, Create Your Inventory File, and Run an Ansible Playbook and Some Ansible Commands</a></p>
+                <p><a href="https://www.reinteractive.net/posts/167-ansible-real-life-good-practices">Ansible (Real Life) Good Practices</a></p>
+                <p><a href="http://tech.oyster.com/using-ansible-to-restore-developer-sanity/">USING ANSIBLE TO RESTORE DEVELOPER SANITY</a></p>
                 <p><a href="https://wikpedia.org" class="uri">https://wikpedia.org</a></p>
                 <p><a href="http://www.ansible.com/home" class="uri">http://www.ansible.com/home</a></p>
             </section>
