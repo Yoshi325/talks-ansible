@@ -1,3 +1,3 @@
 Both of my test machines are Debian Stable with ssh & sudo installed.
 The user we will run as has been added to the sudo group.
-sed --in-place 's/\(^sudo:.*\)$/\1charles/' /etc/group
+sed --in-place 's/\(^sudo:.*\)$/\${USERNAME}/' /etc/group
