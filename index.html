@@ -32,6 +32,7 @@
 h1.subtitle { font-size: 2em; } 
 .code { text-align: left; } 
 .reveal dd > p { margin: 0; } 
+figure, img { border:none !important; outline: none !important; } 
 </style>  
 </head>
 <body>
@@ -41,11 +42,11 @@ h1.subtitle { font-size: 2em; }
                 <h1 class="title">Ansible</h1>
                 <h1 class="subtitle">And why it works for me</h1>
                 <h2 class="author">Charles L. Yost</h2>
-                <h3 class="date">2015-07</h3>
+                <h3 class="date">2015-09</h3>
             </section>
             <section id="description" class="slide level1">
                 <h1>Description</h1>
-                <p>A 45 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.</p>
+                <p>A 25 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.</p>
             </section>
             <section id="speaker-bio" class="slide level1">
                 <h1>Speaker Bio</h1>
@@ -149,8 +150,15 @@ h1.subtitle { font-size: 2em; }
             </section>
             <section id="learn-the-lingo" class="slide level1">
                 <h1>Learn The Lingo</h1>
-                <div class="fragment">
-                    <p><strong>Inventory</strong></p>
+                <div class="fragment current-visible collapsable-fragment">
+                    <figure>
+                        <img src="images/overview.png" alt="">
+                    </figure>
+                </div>
+                <div class="fragment current-visible collapsable-fragment">
+                    <figure>
+                        <img src="images/overview_inventory.png" alt="">
+                    </figure>
                 </div>
                 <aside class="notes">
                     <ul>
@@ -160,28 +168,57 @@ h1.subtitle { font-size: 2em; }
                         <li>can be grouped, and have grouped groups</li>
                     </ul>
                 </aside>
-                <div class="fragment">
-                    <p><strong>Playbooks</strong></p>
+                <div class="fragment current-visible collapsable-fragment">
+                    <figure>
+                        <img src="images/overview_playbook.png" alt="">
+                    </figure>
                 </div>
                 <aside class="notes">
-                    <p>Ansible's documentation calls them it's orchestration language, and I feel it's pretty apt.</p>
+                    <ul>
+                        <li>Ansible's documentation calls them it's orchestration language, and I feel it's pretty apt.</li>
+                    </ul>
                 </aside>
-                <div class="fragment">
-                    <p><strong>Roles</strong></p>
-                    <p><strong>Tasks</strong></p>
-                    <p><strong>Handlers</strong></p>
-                    <p><strong>Variables</strong></p>
+                <div class="fragment current-visible collapsable-fragment">
+                    <figure>
+                        <img src="images/overview_roles.png" alt="">
+                    </figure>
                 </div>
                 <aside class="notes">
                     <ul>
                         <li>Roles allow a smaller, reusable orgizational unit for T, H, & V.</li>
-                        <li>Tasks are a combo of a thing to do, a name for it, if it should be done, and what should be done after it.</li>
-                        <li>Handlers are special post-playbook tasks, which are de-duped before they are ran.</li>
-                        <li>Variables provide flexibility for a role to be configured.</li>
-                        <li>These are the smallest pieces that make up playbooks.</li>
                     </ul>
                 </aside>
-                <div class="fragment">
+                <div class="fragment current-visible collapsable-fragment">
+                    <figure>
+                        <img src="images/overview_tasks.png" alt="">
+                    </figure>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>Tasks are a combo of a thing to do, a name for it, if it should be done, and what should be done after it.</li>
+                    </ul>
+                </aside>
+                <div class="fragment current-visible collapsable-fragment">
+                    <figure>
+                        <img src="images/overview_handlers.png" alt="">
+                    </figure>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>Handlers are special post-playbook tasks, which are de-duped before they are ran.</li>
+                    </ul>
+                </aside>
+                <div class="fragment current-visible collapsable-fragment">
+                    <figure>
+                        <img src="images/overview_Variables.png" alt="">
+                    </figure>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>Variables provide flexibility for a role to be configured.</li>
+                    </ul>
+                </aside>
+                <div class="fragment current-visible collapsable-fragment">
                     <p><strong>Modules</strong></p>
                 </div>
                 <aside class="notes">
@@ -228,7 +265,16 @@ h1.subtitle { font-size: 2em; }
             </section>
             <section id="putting-it-all-together" class="slide level1">
                 <h1>Putting it all Together</h1>
-                <p><strong>DEMO</strong></p>
+                <ul>
+                    <li class="fragment">Create your inventory</li>
+                    <li class="fragment">Create your playbook
+                        <ul>
+                            <li class="fragment">Create tasks for your playbook or role; utilizing modules</li>
+                            <li class="fragment">Use variables in your tasks</li>
+                            <li class="fragment">Use handlers to chain dependent actions</li>
+                        </ul>
+                    </li>
+                </ul>
             </section>
             <section id="tips-tricks-pitfalls" class="slide level1">
                 <h1>Tips, Tricks, & Pitfalls</h1>

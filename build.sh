@@ -1,5 +1,17 @@
 #!/bin/bash
 
+echo "Converting to pdf (via latex)..."
+pandoc \
+    outline.rst \
+    --read=rst \
+    --write=beamer \
+    --slide-level 1 \
+    --standalone \
+    --verbose \
+    --output='talks-ansible.pdf' \
+;
+
+echo "Converting to reveal.js presentation..."
 pandoc \
     outline.rst \
     --read=rst \
@@ -22,6 +34,7 @@ pandoc \
                 h1.subtitle { font-size: 2em; } \
                 .code { text-align: left; } \
                 .reveal dd > p { margin: 0; } \
+                figure, img { border:none !important; outline: none !important; } \
             </style>  \
     ' \
   > index.html \

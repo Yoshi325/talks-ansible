@@ -7,14 +7,14 @@ And why it works for me
 -----------------------
 
 :Author: Charles L. Yost
-:Date: 2015-07
+:Date: 2015-09
 
 ----
 
 Description
 ===========
 
-A 45 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.
+A 25 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.
 
 
 Speaker Bio
@@ -135,39 +135,55 @@ Does Windows Require Python?
 Learn The Lingo
 ===============
 
-.. class:: fragment
-**Inventory**
+.. class:: fragment current-visible collapsable-fragment
+.. figure:: images/overview.png
+    :alt: Overview
 
+.. class:: fragment current-visible collapsable-fragment
+.. figure:: images/overview_inventory.png
+    :alt: Inventory
 .. class:: notes
 * ini format
 * list of hostnames or ips
 * can also contain some variables
 * can be grouped, and have grouped groups
 
-.. class:: fragment
-**Playbooks**
-
+.. class:: fragment current-visible collapsable-fragment
+.. figure:: images/overview_playbook.png
+    :alt: Playbook
 .. class:: notes
-Ansible's documentation calls them it's orchestration language, and I feel it's pretty apt.
+* Ansible's documentation calls them it's orchestration language, and I feel it's pretty apt.
 
-.. class:: fragment
 
-  **Roles**
-
-  **Tasks**
-
-  **Handlers**
-
-  **Variables**
-
+.. class:: fragment current-visible collapsable-fragment
+.. figure:: images/overview_roles.png
+    :alt: Roles
 .. class:: notes
 * Roles allow a smaller, reusable orgizational unit for T, H, & V.
-* Tasks are a combo of a thing to do, a name for it, if it should be done, and what should be done after it.
-* Handlers are special post-playbook tasks, which are de-duped before they are ran.
-* Variables provide flexibility for a role to be configured.
-* These are the smallest pieces that make up playbooks.
 
-.. class:: fragment
+
+.. class:: fragment current-visible collapsable-fragment
+.. figure:: images/overview_tasks.png
+    :alt: Tasks
+.. class:: notes
+* Tasks are a combo of a thing to do, a name for it, if it should be done, and what should be done after it.
+
+
+.. class:: fragment current-visible collapsable-fragment
+.. figure:: images/overview_handlers.png
+    :alt: Handlers
+.. class:: notes
+* Handlers are special post-playbook tasks, which are de-duped before they are ran.
+
+
+.. class:: fragment current-visible collapsable-fragment
+.. figure:: images/overview_Variables.png
+    :alt: Variables
+.. class:: notes
+* Variables provide flexibility for a role to be configured.
+
+
+.. class:: fragment current-visible collapsable-fragment
 **Modules**
 
 .. class:: notes
@@ -217,7 +233,11 @@ Other Details
 Putting it all Together
 =======================
 
-**DEMO**
+  * Create your inventory
+  * Create your playbook
+    * Create tasks for your playbook or role; utilizing modules
+    * Use variables in your tasks
+    * Use handlers to chain dependent actions
 
 
 Tips, Tricks, & Pitfalls
