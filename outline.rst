@@ -7,14 +7,14 @@ And why it works for me
 -----------------------
 
 :Author: Charles L. Yost
-:Date: 2015-09
+:Date: 2016-01
 
 ----
 
 Description
 ===========
 
-A 25 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.
+A 45 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.
 
 
 Speaker Bio
@@ -23,15 +23,32 @@ Speaker Bio
 Charles Yost is currently a Security Developer at Binary Defense Systems. He has worked in the IT industry for over 10 years in a wide variety of roles including: Printer Technician, VoIP  Systems Administrator, .Net Developer, and Web Developer. Throughout life his number one passion has been learning new skills. He can often be found researching a topic, attempting to keep up with the quickly evolving field of technology. Charles enjoys teaching and talking to others about technology. He is a member of NEOISF, and attends as many InfoSec conferences as he can justify with his wife.
 
 
+Binary Defense
+==============
+
+You can find our booth right outside the door after this talk.
+As well as our sister company: TrustedSec.
+
 Contact
 =======
 
 Twitter: @CHARLESLYOST
 
-GitHub: Yoshi325
+GitHub & YouTube: Yoshi325
 
 | This Talk:
 | https://github.com/Yoshi325/talks-ansible
+
+
+Polls
+=====
+
+.. class:: current-visible fragment collapsable-fragment
+Who already knows about Ansible?
+
+.. class:: current-visible fragment collapsable-fragment
+Who has done development in python before?
+
 
 
 Showtime
@@ -177,15 +194,15 @@ Learn The Lingo
 
 
 .. class:: fragment current-visible collapsable-fragment
-.. figure:: images/overview_Variables.png
+.. figure:: images/overview_variables.png
     :alt: Variables
 .. class:: notes
 * Variables provide flexibility for a role to be configured.
 
 
 .. class:: fragment current-visible collapsable-fragment
-**Modules**
-
+.. figure:: images/overview_modules.png
+    :alt: Modules
 .. class:: notes
 Modules (also referred to as “task plugins” or “library plugins”)
 The tools you call on within a Task. Encapsulates an action, and the desired result.
@@ -287,7 +304,7 @@ There are two ways to structure variables:
   networking_interface_ip
 
 The drawback to dictionaries is:
-  when you set a value somewhere else, it will replace the **whole** dictionary. It does not merge it.
+  when you set a value somewhere else, it will replace the **entire** dictionary. It does not merge it.
 
 
 Back to Those Alternatives

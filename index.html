@@ -8,21 +8,19 @@
     <title>Ansible</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="reveal.js/css/reveal.css">
     <style type="text/css">
     code{white-space: pre;}
     </style>
-    <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme"><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme"><!-- Printing and PDF exports -->
 
     <script>
-    if( window.location.search.match( /print-pdf/gi ) ) {
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = 'reveal.js/css/print/pdf.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    }
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script><!--[if lt IE 9]>
   <script src="reveal.js/lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -42,22 +40,35 @@ figure, img { border:none !important; outline: none !important; }
                 <h1 class="title">Ansible</h1>
                 <h1 class="subtitle">And why it works for me</h1>
                 <h2 class="author">Charles L. Yost</h2>
-                <h3 class="date">2015-09</h3>
+                <h3 class="date">2016-01</h3>
             </section>
             <section id="description" class="slide level1">
                 <h1>Description</h1>
-                <p>A 25 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.</p>
+                <p>A 45 minute overview of the what, where, how, and why of using Ansible. Covers alternatives, what Ansible is, what Ansible's dependencies are, jargon pertaining to Ansible, and what it can do to make your life easier. Also includes some tips and tricks for everyday use.</p>
             </section>
             <section id="speaker-bio" class="slide level1">
                 <h1>Speaker Bio</h1>
                 <p>Charles Yost is currently a Security Developer at Binary Defense Systems. He has worked in the IT industry for over 10 years in a wide variety of roles including: Printer Technician, VoIP Systems Administrator, .Net Developer, and Web Developer. Throughout life his number one passion has been learning new skills. He can often be found researching a topic, attempting to keep up with the quickly evolving field of technology. Charles enjoys teaching and talking to others about technology. He is a member of NEOISF, and attends as many InfoSec conferences as he can justify with his wife.</p>
             </section>
+            <section id="binary-defense" class="slide level1">
+                <h1>Binary Defense</h1>
+                <p>You can find our booth right outside the door after this talk. As well as our sister company: TrustedSec.</p>
+            </section>
             <section id="contact" class="slide level1">
                 <h1>Contact</h1>
                 <p>Twitter: @CHARLESLYOST</p>
-                <p>GitHub: Yoshi325</p>
+                <p>GitHub & YouTube: Yoshi325</p>
                 <p>This Talk:<br>
                 <a href="https://github.com/Yoshi325/talks-ansible" class="uri">https://github.com/Yoshi325/talks-ansible</a></p>
+            </section>
+            <section id="polls" class="slide level1">
+                <h1>Polls</h1>
+                <div class="current-visible fragment collapsable-fragment">
+                    <p>Who already knows about Ansible?</p>
+                </div>
+                <div class="current-visible fragment collapsable-fragment">
+                    <p>Who has done development in python before?</p>
+                </div>
             </section>
             <section id="showtime" class="slide level1">
                 <h1>Showtime</h1>
@@ -210,7 +221,7 @@ figure, img { border:none !important; outline: none !important; }
                 </aside>
                 <div class="fragment current-visible collapsable-fragment">
                     <figure>
-                        <img src="images/overview_Variables.png" alt="">
+                        <img src="images/overview_variables.png" alt="">
                     </figure>
                 </div>
                 <aside class="notes">
@@ -219,7 +230,9 @@ figure, img { border:none !important; outline: none !important; }
                     </ul>
                 </aside>
                 <div class="fragment current-visible collapsable-fragment">
-                    <p><strong>Modules</strong></p>
+                    <figure>
+                        <img src="images/overview_modules.png" alt="">
+                    </figure>
                 </div>
                 <aside class="notes">
                     <p>Modules (also referred to as “task plugins” or “library plugins”) The tools you call on within a Task. Encapsulates an action, and the desired result.</p>
@@ -321,7 +334,7 @@ figure, img { border:none !important; outline: none !important; }
                     </dd>
                     <dt>The drawback to dictionaries is:</dt>
                     <dd>
-                        <p>when you set a value somewhere else, it will replace the <strong>whole</strong> dictionary. It does not merge it.</p>
+                        <p>when you set a value somewhere else, it will replace the <strong>entire</strong> dictionary. It does not merge it.</p>
                     </dd>
                 </dl>
             </section>
@@ -401,26 +414,21 @@ figure, img { border:none !important; outline: none !important; }
     </script> 
     <script>
 
-      // Full list of configuration options available here:
+      // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: true,         // Display controls in the bottom right corner
-        progress: true,         // Display a presentation progress bar
-        history: true,          // Push each slide change to the browser history
-        center: false,                       // Vertical centering of slides
-        maxScale: 1.5,                  // Bounds for smallest/largest possible content scale
-        slideNumber: false,                // Display the page number of the current slide
-        theme: 'black', // available themes are in /css/theme
-        transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
 
-        // Optional libraries used to extend on reveal.js
+        // Optional reveal.js plugins
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-    //          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
-    //          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-    ]});
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
     </script>
 </body>
 </html>

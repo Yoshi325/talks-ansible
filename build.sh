@@ -7,7 +7,6 @@ pandoc \
     --write=beamer \
     --slide-level 1 \
     --standalone \
-    --verbose \
     --output='talks-ansible.pdf' \
 ;
 
